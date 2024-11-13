@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #eef2f5;
+    background-color: #f9f9f9;
     color: #333;
 }
 
@@ -71,39 +71,8 @@ main h2 {
     color: #1f2833;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-table thead {
-    background-color: #1f2833;
-    color: #66fcf1;
-}
-
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-table tbody tr:hover {
-    background-color: #e0f0f5;
-}
-
-table th {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-table td {
-    font-size: 1rem;
+main p {
+    font-size: 1.1rem;
     color: #444;
 }
 

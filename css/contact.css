@@ -71,40 +71,32 @@ main h2 {
     color: #1f2833;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    text-align: left;
+main form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-table thead {
+main input, main textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+main button {
+    padding: 10px;
+    font-size: 1.1rem;
     background-color: #1f2833;
     color: #66fcf1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-table tbody tr:hover {
-    background-color: #e0f0f5;
-}
-
-table th {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-table td {
-    font-size: 1rem;
-    color: #444;
+main button:hover {
+    background-color: #45a29e;
+    color: #fff;
 }
 
 /* Footer */
