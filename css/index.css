@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif; /* A modern font */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Soft gradient */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #1f2833;
+    color: #66fcf1;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header nav a {
+    color: #66fcf1;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #45a29e;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+main .content {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    text-align: center;
+    border-radius: 10px;
+    width: 95%;
+    height: 95%;
+}
+
+.content img {
+    width: 500px;
+}
+
+main h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1f2833;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    background-color: #1f2833;
+    color: #c5c6c7;
+    text-align: center;
+    padding: 15px;
+}
+
+footer a {
+    color: #66fcf1;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #45a29e;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    header nav a {
+        margin: 0 10px;
+    }
+
+    main .content {
+        padding: 20px;
+        width: 100%;
+    }
+    .content img {
+        width: 350px;
+    }
+}
