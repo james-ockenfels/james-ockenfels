@@ -1,0 +1,135 @@
+        /* Reset default margins and set up root height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            background: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: #1f2833;
+            color: #66fcf1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        header nav a {
+            color: #66fcf1;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .carousel-container {
+            width: 75%;
+            max-width: 1200px;
+            height: 70vh;
+            position: relative;
+        }
+
+        .carousel-bubble {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            height: 90%;
+            overflow-y: auto;
+        }
+
+        .carousel-slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            min-height: min-content;
+            animation: fade 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: flex;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 50vh;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1f2833;
+            padding: 15px;
+            z-index: 10;
+            transition: color 0.2s ease;
+        }
+
+        .arrow:hover {
+            color: #45a29e;
+        }
+
+        .arrow.left {
+            left: 0px;
+        }
+
+        .arrow.right {
+            right: 0px;
+        }
+
+        footer {
+            background: #1f2833;
+            color: #c5c6c7;
+            text-align: center;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
