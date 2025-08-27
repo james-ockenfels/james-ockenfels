@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>James Ockenfels – Blackjack</title>
-  <!-- Uses your site colors and header layout -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,21 +27,48 @@
     header nav a{color:var(--brand);margin-left:20px;text-decoration:none;font-size:1.05rem;transition:.2s}
     header nav a:hover{color:var(--brand-2)}
 
-    main{max-width:1100px;margin:24px auto;padding:16px;width:100%}
+    main{max-width:1200px;margin:24px auto;padding:16px;width:100%}
+    
+    /* New grid layout */
+    .game-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+    
+    .grid-card-area {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    
+    .grid-controls {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    
+    .grid-log {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    
+    .grid-save {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
     .table{
       background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px
     }
-    .row{display:flex;gap:16px;flex-wrap:wrap}
-    .col{flex:1;min-width:280px}
 
-    .panel{background:#fff;border-radius:12px;box-shadow:var(--soft);padding:16px}
+    .panel{background:#fff;border-radius:12px;box-shadow:var(--soft);padding:16px;margin-bottom:16px}
     .panel h3{margin:0 0 8px;font-size:1.1rem;color:#1f2833}
 
-    .bank{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .bank{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px}
     .bank .pill{background:#f0f0f0;padding:10px 12px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
     .bank input[type="number"]{padding:10px;border-radius:8px;border:1px solid #ddd;width:140px}
 
-    .controls{display:flex;gap:8px;flex-wrap:wrap}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
     button{
       appearance:none;border:0;border-radius:10px;background:var(--header);color:var(--brand);padding:10px 14px;font-weight:600;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .05s ease,opacity .2s
     }
@@ -58,18 +84,18 @@
 
     .felt{background:radial-gradient(circle at 30% 20%, #2a7b6f 0%, #0f3b35 60%, #0a2a26 100%);border-radius:16px;padding:16px;min-height:280px;color:#e8fffb;position:relative;overflow:hidden}
     .felt h2{margin:0 0 8px;font-weight:700}
-    .hand{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+    .hand{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;min-height:120px}
     .row-hands{display:grid;grid-template-columns:1fr;gap:16px}
 
-    /* Playing card styles */
-    .card{width:70px;height:98px;border-radius:10px;background:#fff;border:1px solid #ddd;box-shadow:0 6px 14px rgba(0,0,0,.2);position:relative;padding:6px;display:grid;grid-template-rows:auto 1fr auto}
-    .card .rank{font-weight:800}
-    .card .suit{font-size:1.1rem}
-    .card .center{display:grid;place-items:center;font-size:1.6rem}
+    /* Playing card styles - fixed */
+    .card{width:70px;height:98px;border-radius:10px;background:#fff;border:1px solid #ddd;box-shadow:0 6px 14px rgba(0,0,0,.2);position:relative;padding:6px;display:flex;flex-direction:column;justify-content:space-between}
+    .card .corner{font-weight:800;font-size:14px}
+    .card .center{display:flex;justify-content:center;align-items:center;font-size:1.6rem;flex-grow:1}
+    .card .corner:last-child{text-align:right}
     .card.red{color:#c62828}
     .card.back{background:repeating-linear-gradient(45deg,#133, #133 6px, #1f2833 6px, #1f2833 12px);border-color:#0d2228}
 
-    .score{background:rgba(0,0,0,.35);padding:6px 10px;border-radius:999px;font-weight:700;display:inline-flex;gap:6px;align-items:center}
+    .score{background:rgba(0,0,0,.35);padding:6px 10px;border-radius:999px;font-weight:700;display:inline-flex;gap:6px;align-items:center;margin-bottom:8px}
 
     .status{margin-top:10px;font-weight:700}
     .status.win{color:var(--win)}
@@ -81,54 +107,55 @@
 
     .io{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
     input[type="file"]{display:none}
-    .file-label{border:1px dashed #89d7d2;color:#0f2027;background:#e8fffb}
+    .file-label{border:1px dashed #89d7d2;color:#0f2027;background:#e8fffb;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.12)}
     .link{
       color:var(--brand-2);text-decoration:none
     }
-    .help{font-size:.9rem;color:#555}
+    .help{font-size:.9rem;color:#555;margin-top:8px}
 
     footer{margin:24px 0 12px;text-align:center;color:#6b7280}
 
     /* Footer */
-footer {
-    background-color: #1f2833;
-    color: #c5c6c7;
-    text-align: center;
-    padding: 15px;
-}
+    footer {
+        background-color: #1f2833;
+        color: #c5c6c7;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+    }
 
-footer a {
-    color: #66fcf1;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+    footer a {
+        color: #66fcf1;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
 
-footer a:hover {
-    color: #45a29e;
-}
-
+    footer a:hover {
+        color: #45a29e;
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="left-header"><h1>James Ockenfels</h1></div>
   <nav class="right-header">
-            <a href="../index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="goals.html">Goals</a>
-            <a href="education.html">Education</a>
-            <a href="about.html">About Me</a>
-            <a href="contact.html">Contact</a>
-            <a href="info.html">Info</a>
-            <a href="blackjack.html">BlackJack (NEW!)</a>
+    <a href="../index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="goals.html">Goals</a>
+    <a href="education.html">Education</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact</a>
+    <a href="info.html">Info</a>
+    <a href="blackjack.html">BlackJack (NEW!)</a>
   </nav>
 </header>
 
 <main>
   <div class="table">
-    <div class="row">
-      <div class="col">
+    <div class="game-grid">
+      <!-- Top Left: Cards -->
+      <div class="grid-card-area">
         <div class="panel felt">
           <h2>Blackjack</h2>
           <div class="row-hands">
@@ -145,7 +172,8 @@ footer a:hover {
         </div>
       </div>
 
-      <div class="col" aria-label="Game Controls">
+      <!-- Top Right: Bank & Controls -->
+      <div class="grid-controls">
         <div class="panel">
           <h3>Bank & Bet</h3>
           <div class="bank">
@@ -154,15 +182,15 @@ footer a:hover {
               Bet amount
               <input id="bet" type="number" min="1" step="1" value="25" />
             </label>
-            <div class="controls">
-              <button id="deal-btn">Deal</button>
-              <button id="hit-btn" disabled>Hit</button>
-              <button id="stand-btn" disabled>Stand</button>
-              <button id="double-btn" disabled>Double</button>
-              <button id="newshoe-btn" class="btn-ghost">New Shoe</button>
-            </div>
-            <div class="help">Blackjack pays 3:2. Dealer <span id="dealer-rule"></span>.</div>
           </div>
+          <div class="controls">
+            <button id="deal-btn">Deal</button>
+            <button id="hit-btn" disabled>Hit</button>
+            <button id="stand-btn" disabled>Stand</button>
+            <button id="double-btn" disabled>Double</button>
+            <button id="newshoe-btn" class="btn-ghost">New Shoe</button>
+          </div>
+          <div class="help">Blackjack pays 3:2. Dealer <span id="dealer-rule"></span>.</div>
         </div>
 
         <div class="panel">
@@ -188,21 +216,27 @@ footer a:hover {
             </label>
           </div>
         </div>
+      </div>
 
+      <!-- Bottom Left: Round Log -->
+      <div class="grid-log">
+        <div class="panel">
+          <h3>Round Log</h3>
+          <div id="log" class="log" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Bottom Right: Save Data -->
+      <div class="grid-save">
         <div class="panel">
           <h3>Save / Load</h3>
           <div class="io">
             <button id="export-btn">Export Save</button>
-            <label for="import-file" class="file-label button">Import Save</label>
+            <label for="import-file" class="file-label">Import Save</label>
             <input id="import-file" type="file" accept="application/json" />
             <button id="reset-btn" class="btn-danger">Reset</button>
           </div>
           <p class="help">Save includes bank, settings, and shoe state. You can move it between browsers by exporting a JSON file, then importing it here.</p>
-        </div>
-
-        <div class="panel">
-          <h3>Round Log</h3>
-          <div id="log" class="log" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -219,12 +253,16 @@ footer a:hover {
 
   function log(msg){
     const line = document.createElement('div');
-    line.innerHTML = msg; logEl.prepend(line);
+    line.innerHTML = msg; 
+    logEl.prepend(line);
+    // Auto-scroll to top
+    logEl.scrollTop = 0;
   }
 
   // Card helpers
   const suits = ['♠','♥','♦','♣'];
   const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+  
   function buildDeck(decks=1){
     const d=[];
     for(let k=0;k<decks;k++){
@@ -237,6 +275,7 @@ footer a:hover {
     }
     return shuffle(d);
   }
+  
   function shuffle(a){
     for(let i=a.length-1;i>0;i--){
       const j=Math.floor(Math.random()*(i+1));
@@ -251,7 +290,9 @@ footer a:hover {
     while(total>21 && aces>0){ total -= 10; aces--; }
     return total;
   }
+  
   function isBlackjack(hand){ return hand.length===2 && handValue(hand)===21; }
+  
   function isSoft(hand){
     // Soft if there is an Ace counted as 11 (i.e., total <= 21 and at least one Ace that hasn't been converted)
     let total = 0; let aces = 0;
@@ -260,14 +301,36 @@ footer a:hover {
     return aces>0 && total<=21; // any remaining Ace counted as 11
   }
 
+  // Fixed card rendering function
   function cardEl(c){
-    const el = document.createElement('div'); el.className='card'+((c.s==='♥'||c.s==='♦')?' red':'');
-    const corner = document.createElement('div'); corner.className='rank'; corner.textContent=c.r; el.appendChild(corner);
-    const mid = document.createElement('div'); mid.className='center suit'; mid.textContent=c.s; el.appendChild(mid);
-    const btm = document.createElement('div'); btm.className='rank'; btm.style.textAlign='right'; btm.textContent=c.r; el.appendChild(btm);
+    const el = document.createElement('div'); 
+    el.className = 'card' + ((c.s==='♥'||c.s==='♦')?' red':'');
+    
+    const top = document.createElement('div'); 
+    top.className='corner'; 
+    top.textContent = c.r;
+    
+    const center = document.createElement('div'); 
+    center.className='center'; 
+    center.textContent = c.s;
+    
+    const bot = document.createElement('div'); 
+    bot.className='corner'; 
+    bot.style.textAlign='right'; 
+    bot.textContent = c.r;
+    
+    el.appendChild(top); 
+    el.appendChild(center); 
+    el.appendChild(bot);
+    
     return el;
   }
-  function backEl(){ const el=document.createElement('div'); el.className='card back'; return el; }
+  
+  function backEl(){ 
+    const el = document.createElement('div'); 
+    el.className='card back'; 
+    return el; 
+  }
 
   // --- Game State ---
   const storageKey = 'bj-save';
@@ -367,6 +430,7 @@ footer a:hover {
   function ensureShoe(){
     if(!G.shoe || G.shoe.length===0){ newShoe(); }
   }
+  
   function newShoe(){
     G.shoe = buildDeck(G.decks);
     G.discard = [];
@@ -500,6 +564,7 @@ footer a:hover {
     };
     localStorage.setItem(storageKey, JSON.stringify(save));
   }
+  
   function loadState(){
     try{
       const raw = localStorage.getItem(storageKey);
