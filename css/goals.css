@@ -77,9 +77,11 @@ main ul {
 }
 
 main ul li {
+    background-color: #f0f0f0;
+    padding: 15px;
     margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #444;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
